@@ -1,7 +1,11 @@
 import React from 'react'
+import './statisticalPage.scss'
+import { OptionsFilters } from '../../molecules/options-filters/OptionsFilters'
 
 export const StatisticalPage = () => {
   return (
-    <div>StatisticalPage</div>
+    <div className='statisticalPage'>
+      <OptionsFilters/>
+    </div>
   )
 }
