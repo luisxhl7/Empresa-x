@@ -1,6 +1,6 @@
 import React from 'react'
-import './Page-layout.scss'
 import { NavBar } from '../../organisms/NavBar'
+import './Page-layout.scss'
  
 const PageLayout = ({children}) => {
 
@@ -8,7 +8,6 @@ const PageLayout = ({children}) => {
     <div className='PageLayout'>
       <NavBar/>
       {children}
-
     </div>
   )
 }
