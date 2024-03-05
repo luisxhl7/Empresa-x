@@ -1,0 +1,13 @@
+.data-table{
+    margin: 50px 0px 0px;
+    padding: 45px 30px 31px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    &__title{
+        margin-bottom: 40px;
+        font-size: 24px;
+        line-height: 20px;
+        color: #202224;
+        font-weight: 700;
+    }
+}
