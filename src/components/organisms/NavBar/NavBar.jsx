@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import { useMobileDetect } from "../../../hook";
 import NavBarMobile from "./NavBar-mobile";
@@ -12,11 +13,11 @@ const NavBar = () => {
     <>
       {!isMobile ? (
         <nav className="navBar">
-          <a href="/" className="navBar__content-logo">
+          <NavLink to='/' className="navBar__content-logo">
             <figure>
               <img src={images.LogoEmpresaX} alt="logo Empresa x" />
             </figure>
-          </a>
+          </NavLink>
           <div className="navBar__content-options">
             <Avatar className="navBar__content-image-user">JL</Avatar>
 

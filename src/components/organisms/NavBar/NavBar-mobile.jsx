@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Menu, Close } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import images from "../../../assets/image/image";
@@ -19,11 +20,11 @@ const NavBarMobile = ({ screenSize }) => {
     
     return (
         <nav className="navBar">
-            <a href="/" className="navBar__content-logo">
+            <NavLink to='/' className="navBar__content-logo">
                 <figure>
-                <img src={images?.LogoEmpresaX} alt="logo Empresa x" />
+                    <img src={images?.LogoEmpresaX} alt="logo Empresa x" />
                 </figure>
-            </a>
+            </NavLink>
             <button onClick={handleOpenMenu} className="navBar-mobile__button-open">
                 <Menu />
             </button>
@@ -43,9 +44,9 @@ const NavBarMobile = ({ screenSize }) => {
                         </span>
                         <span className="navBar-mobile__content-info-user__rol">Admin</span>
                     </div>
-                    <a href="/" className="navBar-mobile__button-link">
+                    <NavLink to='/' className="navBar-mobile__button-link">
                         Home
-                    </a>
+                    </NavLink>
                 </div>
             )}
         </nav>
