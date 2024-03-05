@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Menu, Close } from "@mui/icons-material";
-import images from "../../../assets/image";
-import "./NavBar.scss";
 import { Avatar } from "@mui/material";
+import images from "../../../assets/image/image";
+import "./NavBar.scss";
 
 const NavBarMobile = ({ screenSize }) => {
     const [isOpenMenu, setIsOpenMenu] = useState(false);

@@ -2,7 +2,7 @@ import React from "react";
 import { Avatar } from "@mui/material";
 import { useMobileDetect } from "../../../hook";
 import NavBarMobile from "./NavBar-mobile";
-import images from "../../../assets/image";
+import images from "../../../assets/image/image";
 import "./NavBar.scss";
 
 const NavBar = () => {
