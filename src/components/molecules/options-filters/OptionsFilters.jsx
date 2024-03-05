@@ -1,5 +1,5 @@
 import React from 'react'
-import images from '../../../assets/image'
+import images from '../../../assets/image/image'
 import './optionsFilters.scss'
 
 export const OptionsFilters = () => {
