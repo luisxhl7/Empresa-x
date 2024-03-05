@@ -34,7 +34,7 @@ export const DataTable = ({ data }) => {
           <TableHead>
             <TableRow>
               <StyledTableCell>Mes</StyledTableCell>
-              <StyledTableCell align="right">Hospitalizados</StyledTableCell>
+              <StyledTableCell align="right">Hospitalizaciones</StyledTableCell>
               <StyledTableCell align="right">Fallecidos</StyledTableCell>
               <StyledTableCell align="right">Pruebas</StyledTableCell>
             </TableRow>
@@ -45,7 +45,7 @@ export const DataTable = ({ data }) => {
                 <StyledTableCell component="th" scope="row">
                   {row.mes}
                 </StyledTableCell>
-                <StyledTableCell align="right">{addDotEveryThreeDigits(row.hospitalizados)}</StyledTableCell>
+                <StyledTableCell align="right">{addDotEveryThreeDigits(row.hospitalizaciones)}</StyledTableCell>
                 <StyledTableCell align="right">{addDotEveryThreeDigits(row.fallecidos)}</StyledTableCell>
                 <StyledTableCell align="right">{addDotEveryThreeDigits(row.pruebas)}</StyledTableCell>
               </StyledTableRow>

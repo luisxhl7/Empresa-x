@@ -15,7 +15,7 @@ export const GraphicTable = ({ data }) => {
     return (
         <div className="graphicTable__data-table">
             <h1 className="graphicTable__data-table__title">
-                Mortandad por Covid-19
+                Datos Covid-19
             </h1>
             <ResponsiveContainer width="100%" height={300}>
                 <AreaChart
@@ -48,7 +48,7 @@ export const GraphicTable = ({ data }) => {
                 />
                 <Area
                     type="monotone"
-                    dataKey="hospitalizados"
+                    dataKey="hospitalizaciones"
                     stroke="#95A4FC"
                     fillOpacity={1}
                     fill="url(#colorhospitalized)"
@@ -70,7 +70,7 @@ export const GraphicTable = ({ data }) => {
                 </div>
                 <div>
                     <p className="--data-2">
-                        Hospitalizados
+                        Hospitalizaciones
                     </p>
                 </div>
             </div>
