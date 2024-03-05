@@ -17,6 +17,9 @@ const StyledTableCell = styled(TableCell)(() => ({
     '&:nth-of-type(odd), &:nth-of-type(even)': {
       backgroundColor: '#0000000',
     },
+    '&:nth-of-type(odd):hover, &:nth-of-type(even):hover': {
+      backgroundColor: '#ededed',
+    },
     '&:last-child td, &:last-child th': {
       border: 'none',
     },

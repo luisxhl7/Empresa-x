@@ -7,8 +7,7 @@ import { DataTable } from "../../organisms/Data-table";
 import "./statisticalPage.scss";
 
 export const StatisticalPage = () => {
-  const initialState = 'all'
-  const [age, setFilter] = useState(initialState);
+  const [age, setFilter] = useState('');
 
   const dispatch = useDispatch()
   const { historyDataCovid } = useSelector( (state) => state.historyDataCovid);
@@ -20,7 +19,7 @@ export const StatisticalPage = () => {
 
   return (
     <div className="statisticalPage">
-      <OptionsFilters setFilterData={setFilter} filterData={age} initialState={initialState}/>
+      <OptionsFilters setFilterData={setFilter} filterData={age}/>
 
       <GraphicTable data={historyDataCovid}/>
       

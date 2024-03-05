@@ -3,7 +3,7 @@ import { FormControl, MenuItem, Select } from '@mui/material';
 import images from '../../../assets/image/image';
 import './optionsFilters.scss';
 
-export const OptionsFilters = ({filterData, setFilterData, initialState}) => {
+export const OptionsFilters = ({filterData, setFilterData, }) => {
   const [openOptions, setOpenOptions] = useState(false);
 
   const handleOpenOptions = () => {
@@ -15,7 +15,7 @@ export const OptionsFilters = ({filterData, setFilterData, initialState}) => {
   };
 
   const handleResetFilter = () => {
-    setFilterData(initialState)
+    setFilterData('')
   }
 
   return (
@@ -25,13 +25,13 @@ export const OptionsFilters = ({filterData, setFilterData, initialState}) => {
         <span>filtros</span>
       </div>
       <div className='options-filters__content --selector' onClick={handleOpenOptions}>
-        <FormControl sx={{ m: 1 }}>
+        <FormControl>
           <Select
             value={filterData}
             onChange={handleChange}
             displayEmpty
           >
-            <MenuItem value={initialState}>Año</MenuItem>
+            <MenuItem value={''}>Año</MenuItem>
             <MenuItem value={2020}>2020</MenuItem>
             <MenuItem value={2021}>2021</MenuItem>
           </Select>

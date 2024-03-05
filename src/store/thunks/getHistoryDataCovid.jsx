@@ -6,13 +6,20 @@ export const getHistoryDataCovid_thunks = (filter) => {
         try {
             dispatch(SET_LOAD());
             const result = await HistoryCovid.getHistoryDataCovidApi();
-
             const datosPorMes = {};
             const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-
-            for (const iterator of result?.data?.data) {
+            
+            const filterData = result.data.data.filter(history => {
+                const historyYear = new Date(history.date).getFullYear();
+                if (filter === '') {
+                    return true;
+                } else {
+                    return historyYear === parseInt(filter);
+                }
+            });
+            
+            for (const iterator of filterData) {
                 const fecha = new Date(iterator.date);
-                const year = fecha.getFullYear();
                 const mesTexto = meses[fecha.getMonth()];
 
                 if (!datosPorMes[mesTexto]) {
@@ -22,13 +29,12 @@ export const getHistoryDataCovid_thunks = (filter) => {
                         hospitalizaciones: 0,
                         fallecidos: 0
                     };
-                }
-
-                if (filter === 'all' || year === filter) {
+                }else{
                     datosPorMes[mesTexto].pruebas += iterator.testing.total.value;
                     datosPorMes[mesTexto].fallecidos += iterator.outcomes.death.total.value - iterator.outcomes.death.total.calculated.change_from_prior_day;
                     datosPorMes[mesTexto].hospitalizaciones += iterator.outcomes.hospitalized.currently.value - iterator.outcomes.hospitalized.currently.calculated.change_from_prior_day;
                 }
+
             }
             
             const mesesOrdenados = Object.keys(datosPorMes).sort((a, b) => {

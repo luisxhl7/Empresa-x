@@ -21,20 +21,21 @@ export const GraphicTable = ({ data }) => {
                 <AreaChart
                     data={data}
                     margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                    width={730} height={250}
                 >
                 <defs>
                     <linearGradient id="colorhospitalized" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="100%" stopColor="#95A4FC" stopOpacity={0.5} />
-                    <stop offset="100%" stopColor="#95A4FC" stopOpacity={0.5} />
+                        <stop offset="100%" stopColor="#95A4FC" stopOpacity={1} />
+                        <stop offset="100%" stopColor="#95A4FC" stopOpacity={1} />
                     </linearGradient>
                     <linearGradient id="colordeath" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="100%" stopColor="#B1E3FF" stopOpacity={0.5} />
-                    <stop offset="100%" stopColor="#B1E3FF" stopOpacity={0.5} />
+                        <stop offset="100%" stopColor="#B1E3FF" stopOpacity={1} />
+                        <stop offset="100%" stopColor="#B1E3FF" stopOpacity={1} />
                     </linearGradient>
                 </defs>
-                <XAxis dataKey={"mes"}/>
-                <YAxis/>
-                <CartesianGrid vertical={false} />
+                <XAxis dataKey={"mes"} axisLine={false} tickLine={false}/>
+                <YAxis width={80} axisLine={false} tickLine={false}/>
+                <CartesianGrid vertical={false}/>
                 <Tooltip
                     contentStyle={{
                         backgroundColor: "#ffffff",
@@ -48,18 +49,19 @@ export const GraphicTable = ({ data }) => {
                 />
                 <Area
                     type="monotone"
-                    dataKey="hospitalizaciones"
-                    stroke="#95A4FC"
-                    fillOpacity={1}
-                    fill="url(#colorhospitalized)"
-                />
-                <Area
-                    type="monotone"
                     dataKey="fallecidos"
                     stroke="#B1E3FF"
                     fillOpacity={1}
                     fill="url(#colordeath)"
                 />
+                <Area
+                    type="monotone"
+                    dataKey="hospitalizaciones"
+                    stroke="#95A4FC"
+                    fillOpacity={1}
+                    fill="url(#colorhospitalized)"
+                />
+
                 </AreaChart>
             </ResponsiveContainer>
             <div className="graphicTable__info-color-data">

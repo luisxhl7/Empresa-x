@@ -1,7 +1,13 @@
+@import '../../../style/mixins.scss';
+@import '../../../style/variables.scss';
+
 .statisticalPage{
     margin: auto;
     max-width: 1500px;
     padding: 50px 50px 0px;
+    @include FromMax($large) {
+        padding: 50px 10px 0px;
+    }
     & thead{
         & th{
             border: none !important;
