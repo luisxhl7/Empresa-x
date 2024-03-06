@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import { useMobileDetect } from "../../../hook";
-import { Brightness4 } from '@mui/icons-material';
+// import { Brightness4 } from '@mui/icons-material';
 import NavBarMobile from "./NavBar-mobile";
 import images from "../../../assets/image/image";
 import "./NavBar.scss";
@@ -56,9 +56,9 @@ const NavBar = () => {
                 <NavLink to='/'>
                   Cerrar sesión
                 </NavLink>
-                <button className="navBar__menu-options__button-theme">
+                {/* <button className="navBar__menu-options__button-theme">
                   <Brightness4/>
-                </button>
+                </button> */}
               </div>
             }
 
