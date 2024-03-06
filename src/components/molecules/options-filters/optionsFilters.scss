@@ -1,3 +1,6 @@
+@import '../../../style/mixins.scss';
+@import '../../../style/variables.scss';
+
 .options-filters{
     max-width: 544px;
     height: 70px;
@@ -17,6 +20,9 @@
         color: #404040;
         & img{
             margin: 0px 10px 0px 0px;
+            @include FromMax($large) {
+                margin: 0px 0px 0px 5px;
+            }
         }
         &:nth-child(2) {
             border-left: 1px solid #D5D5D5;
