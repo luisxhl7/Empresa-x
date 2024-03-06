@@ -71,13 +71,13 @@ export const GraphicTable = ({ data, descTableBlue, descTablePurple, isLoader })
                     </ResponsiveContainer>
                     <div className="graphicTable__info-color-data">
                         <div>
-                            <p className="--data-1">
-                                {descTableBlue}
+                            <p className="--data-2">
+                                {descTablePurple}
                             </p>
                         </div>
                         <div>
-                            <p className="--data-2">
-                                {descTablePurple}
+                            <p className="--data-1">
+                                {descTableBlue}
                             </p>
                         </div>
                     </div>
