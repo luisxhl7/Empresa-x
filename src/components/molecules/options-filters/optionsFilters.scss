@@ -66,8 +66,14 @@
             }
             
         }
-        &.--reset{
+        &.--btn{
+            height: 100%;
+            background-color: transparent;
             cursor: pointer;
+            color: #ea0234;
+            padding: 0px;
+            margin: 0px;
+            width: auto;
             &:hover{
                 background-color: #ededed;
                 border-radius: 0px 15px 15px 0px;

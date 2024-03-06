@@ -10,8 +10,9 @@ import {
 } from "recharts";
 import { addDotEveryThreeDigits } from "../../../utils/addDotEveryThreeDigits";
 import './graphic-table.scss'
+import { Oval } from "react-loader-spinner";
 
-export const GraphicTable = ({ data, descTableBlue, descTablePurple }) => {
+export const GraphicTable = ({ data, descTableBlue, descTablePurple, isLoader }) => {
   const result = data && data.length > 0 ? data[0] : null;
 
     return (
@@ -81,8 +82,24 @@ export const GraphicTable = ({ data, descTableBlue, descTablePurple }) => {
                         </div>
                     </div>
                 </>
-                : 
-                <p>No hay resultados</p>
+                :
+                <div className="graphicTable__data-table__content">
+                    {isLoader ?
+                        <Oval
+                            visible={true}
+                            height="80"
+                            width="80"
+                            secondaryColor='#f6faff'
+                            ariaLabel="oval-loading"
+                            wrapperStyle={{
+                                margin: '10px auto 10px auto',
+                            }}
+                            wrapperClass=""
+                        />
+                        :
+                        <p>No hay resultados</p>
+                    }
+                </div>
             }
         </div>
     );

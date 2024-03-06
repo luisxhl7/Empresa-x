@@ -7,11 +7,11 @@ import { DataTable } from "../../organisms/Data-table";
 import "./statisticalPage.scss";
 
 export const StatisticalPage = () => {
+  const dispatch = useDispatch()
+  const { historyDataCovid, loadHistoryDataCovid } = useSelector( (state) => state.historyDataCovid);
+
   const [age, setFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
-
-  const dispatch = useDispatch()
-  const { historyDataCovid } = useSelector( (state) => state.historyDataCovid);
   
   useEffect(() => {
     dispatch(getHistoryDataCovid_thunks(age, typeFilter))
@@ -25,11 +25,17 @@ export const StatisticalPage = () => {
         filterData={age}
         typeFilter={typeFilter} 
         setTypeFilter={setTypeFilter}
+        isLoader={loadHistoryDataCovid}
       />
 
-      <GraphicTable data={historyDataCovid} descTableBlue='Fallecidos' descTablePurple='Hospitalizados'/>
+      <GraphicTable 
+        data={historyDataCovid} 
+        descTableBlue='Fallecidos' 
+        descTablePurple='Hospitalizados'
+        isLoader={loadHistoryDataCovid}
+      />
       
-      <DataTable data={historyDataCovid}/>
+      <DataTable data={historyDataCovid} isLoader={loadHistoryDataCovid}/>
     </div>
   );
 };

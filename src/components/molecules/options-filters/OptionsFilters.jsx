@@ -3,7 +3,7 @@ import { FormControl, MenuItem, Select } from '@mui/material';
 import images from '../../../assets/image/image';
 import './optionsFilters.scss';
 
-export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFilter}) => {
+export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFilter, isLoader}) => {
 
   const handleChange = (event) => {
     setFilterData(event.target.value);
@@ -20,12 +20,13 @@ export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFi
 
   return (
     <div className='options-filters'>
-      <div className='options-filters__content --selector'>
+      <div className='options-filters__content --selector' >
       <FormControl>
           <Select
             value={filterData}
             onChange={handleChange}
             displayEmpty
+            disabled={isLoader}
             sx={{
               borderRadius: '0 8px 8px 0',
               border: 'none',
@@ -43,6 +44,7 @@ export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFi
             value={typeFilter}
             onChange={handleChange1}
             displayEmpty
+            disabled={isLoader}
             sx={{
               border: 'none',
             }}
@@ -63,9 +65,11 @@ export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFi
           </Select>
         </FormControl>
       </div>
-      <div className='options-filters__content --reset' onClick={handleResetFilter} title='Resetear filtro'>
-        <img src={images.replayIco} alt='Icono resetear filtro'/>
-        <span>resetear filtro</span>
+      <div className='options-filters__content' title='Resetear filtro'>
+        <button className='options-filters__content --btn' onClick={handleResetFilter} disabled={!isLoader}>
+          <img src={images.replayIco} alt='Icono resetear filtro'/>
+          <span>resetear filtro</span>
+        </button>
       </div>
     </div>
   );
