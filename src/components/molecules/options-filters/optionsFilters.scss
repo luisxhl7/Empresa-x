@@ -26,6 +26,16 @@
             color: #EA0234;
         }
         &.--selector{
+            &:hover{
+                background-color: #ededed;
+                border-radius: 15px 0px 0px 15px;
+            }
+            &:nth-child(2) {
+                &:hover {
+                    background-color: #ededed;
+                    border-radius: 0px 0px 0px 0px;
+                }
+            }
             & .MuiFormControl-root {
                 width: 100%;
                 display: flex;
@@ -48,6 +58,10 @@
         }
         &.--reset{
             cursor: pointer;
+            &:hover{
+                background-color: #ededed;
+                border-radius: 0px 15px 15px 0px;
+            }
         }
     }
 }

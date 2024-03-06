@@ -7,6 +7,7 @@
         padding: 45px 30px 31px;
         background-color: #FFFFFF;
         border-radius: 15px;
+        height: 475px;
         @include FromMax($large) {
             padding: 50px 5px 0px;
         }
@@ -16,6 +17,14 @@
             line-height: 20px;
             color: #202224;
             font-weight: 700;
+        }
+        & p{
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 19.1px;
+            text-align: center;
+            color: #202224;
+            margin: 150px auto;
         }
         
     }

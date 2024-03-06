@@ -1,7 +1,7 @@
 import HistoryCovid from "../../services/historyCovid-service";
 import { SET_HISTORYDATACOVID, SET_LOAD } from "../slice/HistoryDataCovidSlice";
 
-export const getHistoryDataCovid_thunks = (filter, filterMonth) => {
+export const getHistoryDataCovid_thunks = (filterYear, filterMonth) => {
     return async(dispatch, getState) => {
         try {
             dispatch(SET_LOAD());
@@ -11,18 +11,20 @@ export const getHistoryDataCovid_thunks = (filter, filterMonth) => {
             const dataForAge = {};
             const dataForMonth = {}
                         
-            const filterData = result.data.data.filter(history => {
-                const historyYear = new Date(history.date).getFullYear();
-                if (filter === '') {
+            const filterDataForYear = result?.data?.data?.filter(item => {
+                const historyYear = new Date(item.date).getFullYear();
+                if (filterYear === '') {
                     return true;
                 } else {
-                    return historyYear === parseInt(filter);
+                    return historyYear === parseInt(filterYear);
                 }
             });
             
-            for (const iterator of filterData) {
-                const fecha = new Date(iterator.date);
-                const mesTexto = meses[fecha.getMonth()];
+            
+            for (const iterator of filterDataForYear) {
+                const date = new Date(iterator.date);
+                const monthText = meses[date.getMonth()];
+                
                 if (filterMonth !== '') {
                     if (!dataForAge[iterator.date]) {
                         dataForAge[iterator.date] = {
@@ -33,57 +35,56 @@ export const getHistoryDataCovid_thunks = (filter, filterMonth) => {
                         };
                     }
                 }else{
-                    if (!dataForAge[mesTexto]) {
-                        dataForAge[mesTexto] = {
-                            mes: mesTexto,
+                    if (!dataForAge[monthText]) {
+                        dataForAge[monthText] = {
+                            mes: monthText,
                             pruebas: 0,
                             hospitalizaciones: 0,
                             fallecidos: 0
                         };
                     }else{
-                        dataForAge[mesTexto].pruebas += iterator.testing.total.calculated.change_from_prior_day;
-                        dataForAge[mesTexto].fallecidos += iterator.outcomes.death.total.calculated.change_from_prior_day;;
-                        dataForAge[mesTexto].hospitalizaciones += iterator.outcomes.hospitalized.currently.calculated.change_from_prior_day;
+                        dataForAge[monthText].pruebas += iterator.testing.total.calculated.change_from_prior_day;
+                        dataForAge[monthText].fallecidos += iterator.outcomes.death.total.calculated.change_from_prior_day;;
+                        dataForAge[monthText].hospitalizaciones += iterator.outcomes.hospitalized.currently.calculated.change_from_prior_day;
                     }
                 }
             }
             
             if (filterMonth !== '') {
-                const esto = Object.values(dataForAge)
+                const arrayYear = Object.values(dataForAge)
 
-                const filterForMonth = esto.filter(history => {
-                    const fecha = new Date(history.mes);
-                    const mesTexto = meses[fecha.getMonth()];
-                    const historyYear = mesTexto;
+                const filterForMonth = arrayYear.filter(history => {
+                    const date = new Date(history.mes);
+                    const monthText = meses[date.getMonth()];
+
                     if (filterMonth === '') {
                         return true;
                     } else {
-                        return historyYear === filterMonth;
+                        return filterMonth === monthText;
                     }
                 }).sort((a, b) => meses.indexOf(a.mes) - meses.indexOf(b.mes)).reverse()
                 
-
                 for (const iterator of filterForMonth) {
                     if (!dataForMonth[iterator.mes]) {
                         dataForMonth[iterator.mes] = {
                             mes: iterator.mes,
-                            pruebas: iterator.pruebas === null ? 0 : iterator.pruebas,
-                            hospitalizaciones: iterator.hospitalizaciones === null ? 0 : iterator.hospitalizaciones,
-                            fallecidos: iterator.fallecidos  === null ? 0 : iterator.fallecidos,
+                            pruebas: iterator.pruebas || 0,
+                            hospitalizaciones: iterator.hospitalizaciones || 0,
+                            fallecidos: iterator.fallecidos || 0,
                         };
                     }
                 }
 
                 dispatch(SET_HISTORYDATACOVID({ historyDataCovid: Object.values(dataForMonth) }));
             }else{
-                const mesesOrdenados = Object.keys(dataForAge).sort((a, b) => {
+                const monthsOrdered = Object.keys(dataForAge).sort((a, b) => {
                     const indexA = meses.indexOf(a);
                     const indexB = meses.indexOf(b);
                     return indexA - indexB;
                 });
     
-                const datosOrdenados = mesesOrdenados.map(mes => dataForAge[mes]);
-                dispatch(SET_HISTORYDATACOVID({historyDataCovid: datosOrdenados}));
+                const orderedData = monthsOrdered.map(mes => dataForAge[mes]);
+                dispatch(SET_HISTORYDATACOVID({historyDataCovid: orderedData}));
             }
             
         } catch (error) {

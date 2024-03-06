@@ -27,7 +27,7 @@ export const StatisticalPage = () => {
         setTypeFilter={setTypeFilter}
       />
 
-      <GraphicTable data={historyDataCovid}/>
+      <GraphicTable data={historyDataCovid} descTableBlue='Fallecidos' descTablePurple='Hospitalizados'/>
       
       <DataTable data={historyDataCovid}/>
     </div>
