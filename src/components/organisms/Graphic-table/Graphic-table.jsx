@@ -25,16 +25,16 @@ export const GraphicTable = ({ data }) => {
                 >
                 <defs>
                     <linearGradient id="colorhospitalized" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="100%" stopColor="#95A4FC" stopOpacity={1} />
-                        <stop offset="100%" stopColor="#95A4FC" stopOpacity={1} />
+                        <stop offset="100%" stopColor="#95A4FC" stopOpacity={0.5} />
+                        <stop offset="100%" stopColor="#95A4FC" stopOpacity={0.5} />
                     </linearGradient>
                     <linearGradient id="colordeath" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="100%" stopColor="#B1E3FF" stopOpacity={1} />
-                        <stop offset="100%" stopColor="#B1E3FF" stopOpacity={1} />
+                        <stop offset="100%" stopColor="#B1E3FF" stopOpacity={0.5} />
+                        <stop offset="100%" stopColor="#B1E3FF" stopOpacity={0.5} />
                     </linearGradient>
                 </defs>
                 <XAxis dataKey={"mes"} axisLine={false} tickLine={false}/>
-                <YAxis width={80} axisLine={false} tickLine={false}/>
+                <YAxis axisLine={false} tickLine={false}/>
                 <CartesianGrid vertical={false}/>
                 <Tooltip
                     contentStyle={{

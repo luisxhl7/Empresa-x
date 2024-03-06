@@ -33,7 +33,7 @@ export const DataTable = ({ data }) => {
         component={Paper}
         style={{ boxShadow: "none", borderRadius: "5px" }}
       >
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <Table sx={{ minWidth: 600, overflow: 'auto'}} aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell>Mes</StyledTableCell>
@@ -44,13 +44,13 @@ export const DataTable = ({ data }) => {
           </TableHead>
           <TableBody>
             {data?.map((row) => (
-              <StyledTableRow key={row.mes}>
+              <StyledTableRow key={row?.mes}>
                 <StyledTableCell component="th" scope="row">
-                  {row.mes}
+                  {row?.mes}
                 </StyledTableCell>
-                <StyledTableCell align="right">{addDotEveryThreeDigits(row.hospitalizaciones)}</StyledTableCell>
-                <StyledTableCell align="right">{addDotEveryThreeDigits(row.fallecidos)}</StyledTableCell>
-                <StyledTableCell align="right">{addDotEveryThreeDigits(row.pruebas)}</StyledTableCell>
+                <StyledTableCell align="right">{addDotEveryThreeDigits(row?.hospitalizaciones)}</StyledTableCell>
+                <StyledTableCell align="right">{addDotEveryThreeDigits(row?.fallecidos)}</StyledTableCell>
+                <StyledTableCell align="right">{addDotEveryThreeDigits(row?.pruebas)}</StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>

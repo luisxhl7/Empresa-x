@@ -8,18 +8,24 @@ import "./statisticalPage.scss";
 
 export const StatisticalPage = () => {
   const [age, setFilter] = useState('');
+  const [typeFilter, setTypeFilter] = useState('');
 
   const dispatch = useDispatch()
   const { historyDataCovid } = useSelector( (state) => state.historyDataCovid);
   
   useEffect(() => {
-    dispatch(getHistoryDataCovid_thunks(age))
+    dispatch(getHistoryDataCovid_thunks(age, typeFilter))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [age])
+  }, [age, typeFilter])
 
   return (
     <div className="statisticalPage">
-      <OptionsFilters setFilterData={setFilter} filterData={age}/>
+      <OptionsFilters 
+        setFilterData={setFilter} 
+        filterData={age}
+        typeFilter={typeFilter} 
+        setTypeFilter={setTypeFilter}
+      />
 
       <GraphicTable data={historyDataCovid}/>
       

@@ -1,8 +1,16 @@
+@import '../../../style/mixins.scss';
+@import '../../../style/variables.scss';
+
 .data-table{
     margin: 50px 0px 0px;
     padding: 45px 30px 31px;
     background-color: #FFFFFF;
     border-radius: 15px;
+    @include FromMax($large) {
+        height: 500px;
+        overflow: auto;
+        padding: 50px 5px 0px;
+    }
     &__title{
         margin-bottom: 40px;
         font-size: 24px;
