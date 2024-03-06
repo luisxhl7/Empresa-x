@@ -14,7 +14,7 @@ const NavBar = () => {
   useEffect(() => {
 
     const handleDocumentClick = (event) => {
-      const optionsContainer = document.querySelector('.navBar__content-more ');
+      const optionsContainer = document.querySelector('.navBar__content-options');
       if (optionsContainer && !optionsContainer.contains(event.target)) {
         setOpenOptions(false);
       }
@@ -35,11 +35,11 @@ const NavBar = () => {
     <>
       {!isMobile ? (
         <nav className="navBar">
-          <NavLink to='/' className="navBar__content-logo">
+          <a href='/' className="navBar__content-logo">
             <figure>
               <img src={images.LogoEmpresaX} alt="logo Empresa x" />
             </figure>
-          </NavLink>
+          </a>
           <div className="navBar__content-options">
             <Avatar className="navBar__content-image-user">JL</Avatar>
 
