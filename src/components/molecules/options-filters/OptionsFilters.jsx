@@ -66,7 +66,7 @@ export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFi
         </FormControl>
       </div>
       <div className='options-filters__content' title='Resetear filtro'>
-        <button className='options-filters__content --btn' onClick={handleResetFilter} disabled={!isLoader}>
+        <button className='options-filters__content --btn' onClick={handleResetFilter} disabled={isLoader}>
           <img src={images.replayIco} alt='Icono resetear filtro'/>
           <span>resetear filtro</span>
         </button>

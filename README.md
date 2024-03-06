@@ -7,7 +7,7 @@ version desplegada:
 
 ### `npm start - yarn start`
 
-Ejecuta la aplicación en modo de desarrollo.\
+Ejecuta la aplicación en modo de desarrollo.
 Abra (http://localhost:3000) para verlo en su navegador.
 
 ### `npm test - yarn test`

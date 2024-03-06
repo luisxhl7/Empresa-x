@@ -27,6 +27,7 @@ const StyledTableCell = styled(TableCell)(() => ({
 const StyledTableRow = styled(TableRow)(() => ({
   "&:nth-of-type(odd), &:nth-of-type(even)": {
     backgroundColor: "#0000000",
+    transition: 'background-color 0.2s ease 0s, color 0.2s ease 0s'
   },
   "&:nth-of-type(odd):hover, &:nth-of-type(even):hover": {
     backgroundColor: "#ededed",
@@ -67,7 +68,7 @@ export const DataTable = ({ data, isLoader }) => {
               >
                 <TableHead>
                   <TableRow>
-                    <StyledTableCell>Mes</StyledTableCell>
+                    <StyledTableCell>Año/Mes</StyledTableCell>
                     <StyledTableCell align="right">Hospitalizaciones</StyledTableCell>
                     <StyledTableCell align="right">Fallecidos</StyledTableCell>
                     <StyledTableCell align="right">Pruebas</StyledTableCell>
