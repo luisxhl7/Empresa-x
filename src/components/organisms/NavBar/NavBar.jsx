@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import { useMobileDetect } from "../../../hook";
@@ -10,6 +10,22 @@ import "./NavBar.scss";
 const NavBar = () => {
   const { isMobile, screenSize } = useMobileDetect()
   const [openOptions, setOpenOptions] = useState(false)
+  
+  useEffect(() => {
+
+    const handleDocumentClick = (event) => {
+      const optionsContainer = document.querySelector('.navBar__content-more ');
+      if (optionsContainer && !optionsContainer.contains(event.target)) {
+        setOpenOptions(false);
+      }
+    };
+
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);
   
   const handleOpenOptions = () => {
     setOpenOptions(!openOptions)
