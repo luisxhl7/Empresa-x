@@ -54,8 +54,15 @@
                 border: none;
                 font-family: 'Nunito Sans', sans-serif;
             }
-            &.css-fvipm8:nth-child(2){
+            & .css-fvipm8{
                 border-radius: 14px 0px 0px 14px !important;
+                border: none;
+                &:nth-child(2){
+                    border-radius: 0px 0px 0px 0px !important;
+                }
+            }
+            & .css-igs3ac{
+                border: none !important;
             }
             
         }

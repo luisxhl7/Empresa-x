@@ -26,6 +26,10 @@ export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFi
             value={filterData}
             onChange={handleChange}
             displayEmpty
+            sx={{
+              borderRadius: '0 8px 8px 0',
+              border: 'none',
+            }}
           >
             <MenuItem value={''}>Año</MenuItem>
             <MenuItem value={2020}>2020</MenuItem>
@@ -39,6 +43,9 @@ export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFi
             value={typeFilter}
             onChange={handleChange1}
             displayEmpty
+            sx={{
+              border: 'none',
+            }}
           >
             <MenuItem value={''}>mes</MenuItem>
             <MenuItem value={'Enero'}>Enero</MenuItem>
