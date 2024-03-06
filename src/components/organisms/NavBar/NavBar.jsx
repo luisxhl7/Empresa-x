@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Avatar } from "@mui/material";
 import { useMobileDetect } from "../../../hook";
+import { Brightness4 } from '@mui/icons-material';
 import NavBarMobile from "./NavBar-mobile";
 import images from "../../../assets/image/image";
 import "./NavBar.scss";
 
 const NavBar = () => {
   const { isMobile, screenSize } = useMobileDetect()
+  const [openOptions, setOpenOptions] = useState(false)
+  
+  const handleOpenOptions = () => {
+    setOpenOptions(!openOptions)
+  }  
 
   return (
     <>
@@ -26,9 +32,20 @@ const NavBar = () => {
               <span className="navBar__content-info-user__rol">Admin</span>
             </div>
             
-            <div className="navBar__content-more">
+            <div className={`navBar__content-more ${openOptions ? '--isOpen' : ''}`} onClick={handleOpenOptions}>
               <img src={images.More} alt="mas opciones" title="mas opciones" />
             </div>
+            {openOptions &&
+              <div className="navBar__menu-options">
+                <NavLink to='/'>
+                  Cerrar sesión
+                </NavLink>
+                <button className="navBar__menu-options__button-theme">
+                  <Brightness4/>
+                </button>
+              </div>
+            }
+
           </div>
         </nav>
       ) : (

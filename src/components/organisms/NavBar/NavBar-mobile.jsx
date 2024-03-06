@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, Close } from "@mui/icons-material";
+import { Menu, Close, Brightness4 } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
 import images from "../../../assets/image/image";
 import "./NavBar.scss";
@@ -47,6 +47,12 @@ const NavBarMobile = ({ screenSize }) => {
                     <NavLink to='/' className="navBar-mobile__button-link">
                         Home
                     </NavLink>
+                    <NavLink to='/' className="navBar-mobile__button-link">
+                        Cerrar sesión
+                    </NavLink>
+                    <button className="navBar-mobile__button-theme">
+                    <Brightness4/>
+                    </button>
                 </div>
             )}
         </nav>
