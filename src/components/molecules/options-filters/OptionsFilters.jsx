@@ -27,6 +27,7 @@ export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFi
             onChange={handleChange}
             displayEmpty
             disabled={isLoader}
+            title='Filtro de año'
             sx={{
               borderRadius: '0 8px 8px 0',
               border: 'none',
@@ -45,6 +46,7 @@ export const OptionsFilters = ({filterData, setFilterData, typeFilter, setTypeFi
             onChange={handleChange1}
             displayEmpty
             disabled={isLoader}
+            title='Filtro de mes'
             sx={{
               border: 'none',
             }}

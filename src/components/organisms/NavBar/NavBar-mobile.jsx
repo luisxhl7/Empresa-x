@@ -34,6 +34,7 @@ const NavBarMobile = ({ screenSize }) => {
                     <button
                         onClick={handleOpenMenu}
                         className="navBar-mobile__button-close"
+                        title="Menu"
                     >
                         <Close />
                     </button>
@@ -56,9 +57,6 @@ const NavBarMobile = ({ screenSize }) => {
                     <NavLink to='/' className="navBar-mobile__button-link">
                         Cerrar sesión
                     </NavLink>
-                    {/* <button className="navBar-mobile__button-theme">
-                        <Brightness4/>
-                    </button> */}
                 </div>
             )}
         </nav>

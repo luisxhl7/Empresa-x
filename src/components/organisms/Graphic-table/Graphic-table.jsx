@@ -9,8 +9,8 @@ import {
   Tooltip,
 } from "recharts";
 import { addDotEveryThreeDigits } from "../../../utils/addDotEveryThreeDigits";
-import './graphic-table.scss'
 import { Oval } from "react-loader-spinner";
+import './graphic-table.scss'
 
 export const GraphicTable = ({ data, descTableBlue, descTablePurple, isLoader }) => {
   const result = data && data.length > 0 ? data[0] : null;
@@ -39,7 +39,7 @@ export const GraphicTable = ({ data, descTableBlue, descTablePurple, isLoader })
                             </linearGradient>
                         </defs>
                         <XAxis dataKey={"mes"} axisLine={false} tickLine={false}/>
-                        <YAxis axisLine={false} tickLine={false}/>
+                        <YAxis axisLine={false} tickLine={false} width={65}/>
                         <CartesianGrid vertical={false}/>
                         <Tooltip
                             contentStyle={{

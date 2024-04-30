@@ -11,8 +11,8 @@ import {
   tableCellClasses,
 } from "@mui/material";
 import { addDotEveryThreeDigits } from "../../../utils/addDotEveryThreeDigits";
-import "./data-table.scss";
 import { Oval } from "react-loader-spinner";
+import "./data-table.scss";
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.head}`]: {
@@ -52,7 +52,7 @@ export const DataTable = ({ data, isLoader }) => {
             secondaryColor='#f6faff'
             ariaLabel="oval-loading"
             wrapperStyle={{
-                margin: '10px auto 10px auto',
+              margin: '10px auto 10px auto',
             }}
             wrapperClass=""
           />

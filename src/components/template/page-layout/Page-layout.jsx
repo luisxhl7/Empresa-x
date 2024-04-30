@@ -5,10 +5,10 @@ import './Page-layout.scss'
 const PageLayout = ({children}) => {
 
   return (
-    <div className='PageLayout'>
+    <main className='PageLayout'>
       <NavBar/>
       {children}
-    </div>
+    </main>
   )
 }
 export default PageLayout

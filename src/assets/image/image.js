@@ -1,4 +1,4 @@
-import LogoEmpresaX from './Logo-Empresa-X.png';
+import LogoEmpresaX from './empresa-x.svg';
 import More from './More.png';
 import filterIco from './Filter-icon.svg';
 import replayIco from './ic-replay-24px.svg';

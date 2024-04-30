@@ -19,7 +19,7 @@ export const StatisticalPage = () => {
   }, [age, typeFilter])
 
   return (
-    <div className="statisticalPage">
+    <section className="statisticalPage">
       <OptionsFilters 
         setFilterData={setFilter} 
         filterData={age}
@@ -36,6 +36,6 @@ export const StatisticalPage = () => {
       />
       
       <DataTable data={historyDataCovid} isLoader={loadHistoryDataCovid}/>
-    </div>
+    </section>
   );
 };
